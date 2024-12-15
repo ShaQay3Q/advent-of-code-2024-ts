@@ -52,17 +52,17 @@ let arr1 = [3, 4, 2];
 let arr2 = [4, 3, 5];
 
 let res = sum(arr1, arr2);
-console.log(res);
+// console.log(res);
 
 arr1 = [...arr1, 1, 3, 3];
 arr2 = [...arr2, 3, 9, 3];
 
 res = sum(arr1, arr2);
-console.log(res);
+// console.log(res);
 
 // Turn string into string[]
 const stringSpliter = (s: string): number[] => {
-	return str.split(/\s+/g).map((num) => +num);
+	return s.split(/\s+/g).map((num) => +num);
 };
 
 function splitNumArrIntoTwoNumArr(numArr: number[]): [number[], number[]] {
@@ -77,30 +77,30 @@ function splitNumArrIntoTwoNumArr(numArr: number[]): [number[], number[]] {
 			numArr2.push(numArr[i]);
 		}
 	}
-	console.log(`numArr1: ${numArr1}`);
-	console.log(`numArr2: ${numArr2}`);
+	// console.log(`numArr1: ${numArr1}`);
+	// console.log(`numArr2: ${numArr2}`);
 
 	return [numArr1, numArr2];
 }
 
-const str = `82728   61150
+let str = `82728   61150
 39850   94024`;
 
 const num = stringSpliter(str);
-console.log(typeof num);
-console.log(`number[]: ${num}`);
+// console.log(typeof num);
+// console.log(`number[]: ${num}`);
 
 const result = splitNumArrIntoTwoNumArr(num);
-console.log(result);
+// console.log(result);
 
-console.log(typeof ["82728", "61150"]);
+// console.log(typeof ["82728", "61150"]);
 
 // const s = strArr(str);
 // console.log(s);
 
 const finalResult = (string: string): number => {
 	const numbers = stringSpliter(string);
-	console.log(numbers);
+	// console.log(numbers);
 
 	const numArrays = splitNumArrIntoTwoNumArr(numbers);
 	const res = sum(numArrays[0], numArrays[1]);
@@ -110,3 +110,12 @@ const finalResult = (string: string): number => {
 let sumResult = finalResult(str);
 
 console.log(sumResult);
+
+let input = `82728   61150
+39850   94024
+24609   43406
+24964   98661
+16230   17299`;
+
+let output = finalResult(input);
+console.log(output);
