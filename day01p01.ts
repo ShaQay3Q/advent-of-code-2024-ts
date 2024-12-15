@@ -60,12 +60,37 @@ arr2 = [...arr2, 3, 9, 3];
 res = sum(arr1, arr2);
 console.log(res);
 
-// Replace \n with string
-const strArr = (s: string): string[] => {
-	return s.replace(/\n/g, " ").split(" ");
+// Turn string into string[]
+const numArr = (s: string): number[] => {
+	return str.split(/\s+/g).map((num) => +num);
 };
 
-const str = "82728   61150";
+function splitNumArrIntoTwoNumArr(numArr: number[]): [number[], number[]] {
+	let numArr1: number[] = [];
+	let numArr2: number[] = [];
+	const arrLength = numArr.length;
 
-const s = strArr(str);
-console.log(s);
+	for (let i = 0; i < arrLength; i++) {
+		if (i % 2) {
+			numArr1.push(numArr[i]);
+		} else {
+			console.log(numArr2);
+		}
+	}
+	return [numArr1, numArr2];
+}
+
+const str = `82728   61150
+39850   94024`;
+
+const num = numArr(str);
+console.log(typeof num);
+console.log(num);
+
+const result = splitNumArrIntoTwoNumArr(num);
+console.log(result);
+
+console.log(typeof ["82728", "61150"]);
+
+// const s = strArr(str);
+// console.log(s);
