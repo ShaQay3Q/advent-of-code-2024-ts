@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+
 function isBigger(numArr: number[], index: number): boolean {
 	if (numArr[index - 1] > numArr[index]) {
 		return true;
@@ -66,6 +68,7 @@ const strIntoNumArr = (s: string): number[] => {
 		.trim() // Removes the leading and trailing white space and line terminator characters from a string
 		.split(/\s+/g)
 		.map((num) => +num);
+	// instead of trim(), I could use filter
 };
 
 function splitNumArrIntoTwoNumArr(numArr: number[]): [number[], number[]] {
@@ -86,8 +89,10 @@ function splitNumArrIntoTwoNumArr(numArr: number[]): [number[], number[]] {
 	return [numArr1, numArr2];
 }
 
-let str = `82728   61150
-39850   94024`;
+let str = `
+82728   61150
+39850   94024
+`;
 
 const num = strIntoNumArr(str);
 // console.log(typeof num);
@@ -114,11 +119,13 @@ let sumResult = finalResult(str);
 
 // console.log(sumResult);
 
-let input = `82728   61150
+let input = `
+82728   61150
 39850   94024
 24609   43406
 24964   98661
-16230   17299`;
+16230   17299
+`;
 
 input = `
 3   4
@@ -154,3 +161,9 @@ console.log(finalRes);
 // input = ``;
 // output = finalResult(input);
 // console.log(output);
+
+const fileContent = readFileSync("./day01p01.txt", "utf-8");
+console.log(fileContent);
+
+let resultFormFile = finalResult(fileContent);
+console.log(resultFormFile);
