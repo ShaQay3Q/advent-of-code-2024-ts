@@ -1,11 +1,8 @@
-const isBigger = (num1: number, num2: number): boolean =>
-	num1 < num2 ? true : false;
-
 const isSmaller = (num1: number, num2: number): boolean =>
 	num1 > num2 ? true : false;
 
 const isDistanceValid = (num1: number, num2: number): boolean =>
-	Math.abs(num1 - num2) <= 2 ? true : false;
+	Math.abs(num1 - num2) < 4 ? true : false;
 
 const isIncreasingAndCorrect = (numArr: number[]): boolean => {
 	const length = numArr.length;
@@ -56,3 +53,37 @@ console.log(res);
 
 res = isDecreasingAndCorrect([7, 6, 4, 2, 1]);
 console.log(res);
+
+const input = [
+	[7, 6, 4, 2, 1],
+	[1, 2, 7, 8, 9],
+	[9, 7, 6, 2, 1],
+	[1, 3, 2, 4, 5],
+	[8, 6, 4, 4, 1],
+	[1, 3, 6, 7, 9],
+];
+
+const numOfCorrects = (arrNumArr: number[][]): number => {
+	let amount: number = 0;
+	// const length = arrNumArr.length;
+	for (const i of arrNumArr) {
+		if (isSmaller(i[0], i[1])) {
+			console.log(`isSmaller: ${isSmaller(i[0], i[1])}`);
+
+			if (isDecreasingAndCorrect(i)) {
+				amount++;
+				console.log(`amount in isSmaller: ${amount}`);
+			}
+		} else if (!isSmaller(i[0], i[1])) {
+			console.log(`isSmaller: ${isSmaller(i[0], i[1])}`);
+			if (isIncreasingAndCorrect(i)) {
+				amount++;
+				console.log(`amount in isSmaller: ${amount}`);
+			}
+		}
+	}
+	return amount;
+};
+
+let result = numOfCorrects(input);
+console.log(result);
