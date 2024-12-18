@@ -1,3 +1,7 @@
+//=============================================================//
+//                        FIRST PART
+//=============================================================//
+
 const isSmaller = (num1: number, num2: number): boolean =>
 	num1 > num2 ? true : false;
 
@@ -74,7 +78,7 @@ const numOfCorrects = (arrNumArr: number[][]): number => {
 				amount++;
 				console.log(`amount in isSmaller: ${amount}`);
 			}
-		} else if (!isSmaller(i[0], i[1])) {
+		} else {
 			console.log(`isSmaller: ${isSmaller(i[0], i[1])}`);
 			if (isIncreasingAndCorrect(i)) {
 				amount++;
