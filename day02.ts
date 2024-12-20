@@ -113,7 +113,8 @@ const isIncreasing = (numArr: number[]): boolean => {
 const isDecreasing = (numArr: number[]): boolean => {
 	const l = numArr.length;
 	for (let i = 0; i < numArr.length - 1; i++) {
-		if (numArr[i] <= numArr[i + 1]) {
+		// if (numArr[i] <= numArr[i + 1])
+		if (!isSmaller(numArr[i], numArr[i + 1])) {
 			return false;
 		}
 	}
