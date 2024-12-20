@@ -1,3 +1,7 @@
+import { readFileSync } from "node:fs";
+
+const filecontent = readFileSync("./day03.txt", "utf-8");
+
 const regex = /mul\(\d{1,3},\d{1,3}\)/g;
 
 const code =
@@ -32,4 +36,9 @@ const calculate = (numbers: number[][]): number => {
 };
 
 let result = calculate(res);
+console.log(result);
+
+const usableText = filecontent.match(regex) as RegExpExecArray;
+
+result = calculate(numArr(usableText));
 console.log(result);
