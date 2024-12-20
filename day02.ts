@@ -102,8 +102,8 @@ let result = numOfCorrects(arrOfArr);
 
 const isIncreasing = (numArr: number[]): boolean => {
 	const l = numArr.length;
-	for (let i = 0; i < numArr.length - 1; i++) {
-		if (numArr[i] >= numArr[i + 1]) {
+	for (let i = 0; i < l - 1; i++) {
+		if (isSmaller(numArr[i], numArr[i + 1])) {
 			return false;
 		}
 	}
@@ -112,8 +112,7 @@ const isIncreasing = (numArr: number[]): boolean => {
 
 const isDecreasing = (numArr: number[]): boolean => {
 	const l = numArr.length;
-	for (let i = 0; i < numArr.length - 1; i++) {
-		// if (numArr[i] <= numArr[i + 1])
+	for (let i = 0; i < l - 1; i++) {
 		if (!isSmaller(numArr[i], numArr[i + 1])) {
 			return false;
 		}
@@ -139,7 +138,7 @@ const isSafeReport = (numArr: number[]): boolean => {
 const canBeMadeSafe = (numArr: number[]): boolean => {
 	const l = numArr.length;
 	for (let i = 0; i < l; i++) {
-		// Create a copy of the numArr excluding the current level
+		// Create a copy of the numArr excluding the current index
 		const modifiedReport = [...numArr.slice(0, i), ...numArr.slice(i + 1)];
 		if (isSafeReport(modifiedReport)) {
 			return true;
